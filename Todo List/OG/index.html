@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ToDo List</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="container" id="container-main">
+      <div class="todo-app">
+        <h2>
+          To-Do List <img src="./Assests/to-do-list.png" alt="Todo-Icon" />
+        </h2>
+        <div class="inupu-field">
+          <input type="text" id="input-box" placeholder="Type your text" />
+          <button id="button">Add</button>
+        </div>
+        <ul id="list-container">
+          <!-- <li class="checked">Task 1</li>
+          <li>Task 2</li>
+          <li>Task 3</li> -->
+        </ul>
+      </div>
+    </div>
+
+    <script href="./script.js">
+      const container = document.getElementById("container-main");
+      const inputBox = document.getElementById("input-box");
+      const listContainer = document.getElementById("list-container");
+      const buttons = document.getElementById("button");
+      // let li = document.createElement("li");
+      // let span = document.createElement("span");
+
+      buttons.addEventListener("click", () => {
+        if (inputBox.value == "") {
+          alert("Enter Your Text");
+        } else {
+          let li = document.createElement("li");
+          li.innerHTML = inputBox.value;
+          inputBox.value = "";
+          listContainer.appendChild(li);
+          let span = document.createElement("span");
+          span.innerHTML = " &#10006";
+          span.classList.add("span1");
+          li.appendChild(span);
+          let span2 = document.createElement("p");
+          span2.innerHTML = "&#9998";
+          li.appendChild(span2);
+          span2.classList.add("span2");
+        }
+      });
+      listContainer.addEventListener("click", function (e) {
+        if (e.target.tagName === "LI") {
+          e.target.classList.toggle("checked");
+        } else if (e.target.tagName === "SPAN") {
+          e.target.parentElement.remove();
+        } else if (e.target.tagName === "P") {
+          e.target.classList.add("para");
+          let inputEdit = document.createElement("input");
+          let saveButton = document.createElement("button");
+          container.appendChild(saveButton);
+          container.appendChild(inputEdit);
+
+          inputEdit.classList.add("input-edit");
+        }
+      });
+    </script>
+  </body>
+</html>

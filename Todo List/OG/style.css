@@ -1,0 +1,144 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "poppins", sans-serif;
+}
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ef709b, #fa9372);
+}
+
+.todo-app {
+  width: 100%;
+  max-width: 540px;
+  background-color: #fff;
+  margin: 10px auto 20px;
+  padding: 40px 30px 70px;
+  border-radius: 20px;
+}
+
+.todo-app h2 {
+  color: black;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.todo-app h2 img {
+  width: 30px;
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.inupu-field {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #d9d9d9;
+  margin-bottom: 25px;
+  padding-left: 20px;
+  border-radius: 30px;
+}
+
+input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 15px 10px;
+}
+button {
+  border: none;
+  outline: none;
+  padding: 16px 50px;
+  border-radius: 40px;
+  font-size: 16px;
+  cursor: pointer;
+  color: #fff;
+  background-color: #fa9372;
+}
+ul li {
+  position: relative;
+  list-style: none;
+  font-size: 17px;
+  padding: 12px 8px 12px 50px;
+  user-select: none;
+  cursor: pointer;
+}
+
+ul li::before {
+  content: "";
+  position: absolute;
+  height: 28px;
+  width: 28px;
+  border-radius: 50px;
+  background-image: url(./Assests/oval.png);
+  background-position: center;
+  background-size: cover;
+  top: 10px;
+  left: 8px;
+}
+
+.checked {
+  color: #999999;
+  text-decoration: line-through;
+}
+
+.checked::before {
+  background-image: url(./Assests/yes.png);
+}
+
+/* ul li::after {
+  content: "";
+  position: absolute;
+  background-image: url(./Assests/delete-button.png);
+  height: 28px;
+  width: 28px;
+  background-size: cover;
+  background-position: center;
+  top: 10px;
+  right: 40px;
+} */
+
+ul li .span1 {
+  position: absolute;
+  top: 10px;
+  right: 40px;
+  font-size: 22px;
+  height: 40px;
+  width: 40px;
+  color: #999999;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+}
+
+ul li .span2 {
+  position: absolute;
+  top: 10px;
+  right: 80px;
+  font-size: 22px;
+  height: 40px;
+  width: 40px;
+  /* color: #999999; */
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+}
+
+ul li .span2:hover {
+  background: #505050;
+  color: #fff;
+}
+
+ul li span:hover {
+  background: #f0f0f0;
+}
+
+.hide {
+  display: none;
+}

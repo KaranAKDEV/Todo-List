@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ToDo List</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="container" id="container-main">
+      <div class="todo-app">
+        <h2>
+          To-Do List <img src="./Assests/to-do-list.png" alt="Todo-Icon" />
+        </h2>
+        <div class="inupu-field">
+          <input
+            class="input-field"
+            type="text"
+            id="input-box"
+            placeholder="Type your text"
+          />
+          <button id="button" class="button-add">Add</button>
+        </div>
+        <div id="list-container"></div>
+
+        <!-- <ul id="list-container"> -->
+        <!-- <input type="text"></input><button>save</button> <button>delete</button> -->
+        <!-- <li class="checked">Task 1</li>
+          <li>Task 2</li>
+          <li>Task 3</li> -->
+        <!-- </ul> -->
+      </div>
+    </div>
+
+    <script>
+      const container = document.getElementById("container-main");
+      const inputBox = document.getElementById("input-box");
+      const listContainer = document.getElementById("list-container");
+      const buttonAdd = document.getElementById("button");
+      // let li = document.createElement("li");
+      // let span = document.createElement("span");
+
+      buttonAdd.addEventListener("click", () => {
+        if (inputBox.value == "") {
+          alert("Enter Your Text");
+        } else {
+          const newDivs = document.createElement("div");
+          listContainer.appendChild(newDivs);
+
+          // const images = document.createElement("img");
+          // images.src = "./Assests/oval.png";
+          // newDivs.appendChild(images);
+
+          let inputFields = document.createElement("input");
+          inputFields.setAttribute("readonly", "readonly");
+          newDivs.appendChild(inputFields);
+          inputFields.value = inputBox.value;
+          inputBox.value = "";
+
+          let buttonEdit = document.createElement("button");
+          buttonEdit.innerHTML = "Edit";
+          buttonEdit.classList.add("buttonsNew");
+          newDivs.appendChild(buttonEdit);
+
+          let buttonSave = document.createElement("button");
+          buttonSave.innerHTML = "Save";
+          buttonSave.classList.add("buttonsNew");
+          newDivs.appendChild(buttonSave);
+
+          let buttonDelete = document.createElement("button");
+          buttonDelete.innerHTML = "Delete";
+          buttonDelete.classList.add("buttonsNew");
+          newDivs.appendChild(buttonDelete);
+
+          buttonEdit.addEventListener("click", () => {
+            inputFields.removeAttribute("readonly", "readonly");
+          });
+
+          buttonSave.addEventListener("click", () => {
+            inputFields.setAttribute("readonly", "readonly");
+            alert("Saved");
+          });
+
+          buttonDelete.addEventListener("click", () => {
+            newDivs.style.display = "none";
+          });
+        }
+      });
+
+      // buttonAdd.addEventListener("click", () => {
+      //   if (inputBox.value == "") {
+      //     alert("You Must Enter Text");
+      //   } else {
+      //     const newDivision = document.createElement("h1");
+      //     listContainer.appendChild(newDivision);
+      //   }
+      // });
+    </script>
+  </body>
+</html>
